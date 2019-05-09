@@ -20,13 +20,34 @@ $(document).ready(function() {
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
-    // make a dancer with a random position
+    var random = function() {
+      min = Math.ceil(1);
+      max = Math.floor(2);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+    var kid = random();
+    var left, dancer;
+    if (kid === 1) {
+      left = 20;
+    } else {
+      left = 1225;
+    }
 
-    var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
-    );
+    // make a dancer with a random position
+    if (dancerMakerFunctionName === 'makeMiddleSchooler') {
+      dancer = new dancerMakerFunction(
+        $('body').height() * Math.random(),
+        left,
+        Math.random() * 1000
+      );
+    } else {
+      dancer = new dancerMakerFunction(
+        $('body').height() * Math.random(),
+        $('body').width() * Math.random(),
+        Math.random() * 1000
+      );
+    }
+
     $('body').append(dancer.$node);
   });
 });
