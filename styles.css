@@ -64,14 +64,12 @@ body, a:link, a:visited, a:active{
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-.girl {
-  border: 10px solid pink;
-  display: flex;
-  justify-content: flex-start;
-}
-
 .boy {
   border: 10px solid blue;
   display:flex;
-  justify-content: flex-end;
+}
+
+.girl {
+  border: 10px solid pink;
+  display: flex;
 }
