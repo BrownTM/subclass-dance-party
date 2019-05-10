@@ -48,7 +48,20 @@ $(document).ready(function() {
       );
     }
 
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+
+  // create on click event for class lineUpButton
+  $('.lineUpButton').on('click', function(event) {
+    // loop through all existing dancers
+    window.dancers.forEach(function() {
+      // for each, invoke their lineUp method
+
+    });
+
+  });
+
+
 });
 

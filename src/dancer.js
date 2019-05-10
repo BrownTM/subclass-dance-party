@@ -33,3 +33,8 @@ makeDancer.prototype.setPosition = function(top, left) {
 
 // return dancer;
 // };
+
+makeDancer.prototype.lineUp = function() {
+  // move to one side
+
+};
