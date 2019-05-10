@@ -12,6 +12,11 @@ makeMiddleSchooler.prototype.step = function() {
     this.$node.addClass('girl');
   } else {
     this.$node.addClass('boy');
+    this.$node.mouseover(function() {
+      $(this).addClass('fadeOut');
+    }).mouseleave(function() {
+      $(this).removeClass('fadeOut');
+    });
   }
 
 };
