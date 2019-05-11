@@ -39,7 +39,7 @@ makeDancer.prototype.setPosition = function(top, left) {
 makeDancer.prototype.lineUp = function() {
   // move to one side
   var styleSettings = {
-    top: 300
+    top: 425
   };
   this.$node.css(styleSettings);
 };
@@ -50,4 +50,8 @@ makeDancer.prototype.breakLine = function() {
     left: this.left
   };
   this.$node.css(styleSettings);
+};
+
+makeDancer.prototype.shake = function() {
+  this.$node.addClass('shaker');
 };

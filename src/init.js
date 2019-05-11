@@ -30,20 +30,21 @@ $(document).ready(function() {
     if (kid === 1) {
       left = 20;
     } else {
-      left = 1225;
+      // left = 1225;
+      left = 1185;
     }
 
     // make a dancer with a random position
     if (dancerMakerFunctionName === 'makeMiddleSchooler') {
       dancer = new dancerMakerFunction(
-        $('body').height() * Math.random(),
+        ($('.floor').height() - 50) * Math.random(),
         left,
         Math.random() * 1000
       );
     } else {
       dancer = new dancerMakerFunction(
-        $('body').height() * Math.random(),
-        $('body').width() * Math.random(),
+        ($('.floor').height() - 50) * Math.random(),
+        ($('.floor').width() - 50) * Math.random(),
         Math.random() * 1000
       );
     }
@@ -57,8 +58,6 @@ $(document).ready(function() {
     window.dancers.forEach(function(dancer) {
       // for each, invoke their lineUp method
       // maybe in the forEach invocation, give them specific locations to line up
-      // var top = 400
-      // dancer.lineUp(500,top + 100);
       dancer.lineUp();
       // with each iteration, add specific number to position so they're not in same spot
     });
@@ -71,6 +70,11 @@ $(document).ready(function() {
     });
   });
 
+  $('.harlemShakeButton').on('click', function() {
+    window.dancers.forEach(function(dancer) {
+      dancer.shake();
+    });
+  });
 
 });
 
