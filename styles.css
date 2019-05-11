@@ -2,6 +2,7 @@ body, html{
   height:100%;
   background-image: url("https://drive.google.com/uc?export=view&id=1rVvZBQIrSVUsWI1ATtKLozbu0WgaoBcx");
   background-size: cover;
+  background-position: center;
 }
 body{
   margin: 0px;
@@ -12,12 +13,20 @@ body, a:link, a:visited, a:active{
   color: lightblue;
 }
 .title, .addDancerButton{
-  padding:5px 12px;
-  float:right;
+  padding: 5px 12px;
+  float: right;
 }
-.lineUpButton{
-  padding:5px 0px 0px 10px;
-  float:left;
+.lineUpButton, .breakLineButton{
+  padding: 5px 12px;
+  float: left;
+}
+.lineUp{
+  position: relative;
+  -webkit-animation-name: moveToMiddle; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+  animation-name: moveToMiddle;
+  animation-timing-function: linear;
+  animation-duration: 3s;
 }
 .topbar{
   height:32px;
@@ -32,13 +41,28 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 
-.spin{
-  width: 50px;
-  height: 50px;
+.breakDancer{
+  width: 100px;
+  height: 100px;
+  position: absolute;
   animation-name: spin;
-  animation-duration: 500ms;
+  animation-duration: 1000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+}
+
+img.breakDancer:hover{
+  cursor: pointer;
+  animation-name: bounce;
+  -moz-animation-name: bounce;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
 }
 
 @keyframes spin {
@@ -48,6 +72,24 @@ body, a:link, a:visited, a:active{
   to {
       transform:rotate(360deg);
   }
+}
+
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		-ms-transform:     translateY(0);
+		transform:         translateY(0)
+	}
+	40% {
+		-webkit-transform: translateY(-30px);
+		-ms-transform:     translateY(-30px);
+		transform:         translateY(-30px)
+	}
+	60% {
+		-webkit-transform: translateY(-15px);
+		-ms-transform:     translateY(-15px);
+		transform:         translateY(-15px);
+	}
 }
 
 .shaker {
@@ -72,15 +114,17 @@ body, a:link, a:visited, a:active{
 
 .boy {
   border: 10px solid blue;
-  display:flex;
   transition: 0.6s;
 }
 
 .girl {
   border: 10px solid pink;
-  display: flex;
 }
 
 .fadeOut {
   opacity: 0;
+}
+
+@keyframes moveToMiddle {
+  100% {left:100%; top:100%;}
 }

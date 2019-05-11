@@ -52,14 +52,23 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
   });
 
-  // create on click event for class lineUpButton
-  $('.lineUpButton').on('click', function(event) {
+  $('.lineUpButton').on('click', function() {
     // loop through all existing dancers
-    window.dancers.forEach(function() {
+    window.dancers.forEach(function(dancer) {
       // for each, invoke their lineUp method
-
+      // maybe in the forEach invocation, give them specific locations to line up
+      // var top = 400
+      // dancer.lineUp(500,top + 100);
+      dancer.lineUp();
+      // with each iteration, add specific number to position so they're not in same spot
     });
 
+  });
+
+  $('.breakLineButton').on('click', function() {
+    window.dancers.forEach(function(dancer) {
+      dancer.breakLine();
+    });
   });
 
 
